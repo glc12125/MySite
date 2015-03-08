@@ -51,7 +51,7 @@ of the scaffold.
         <content select=".menuButton" on-tap="{{togglePanel}}">
           <core-icon-button class="menuButton fallback" icon="menu"></core-icon-button>
         </content>
-        <div hidden?="{{!narrow}}">{{item.label}}</div>
+        <div hidden?="{{!narrow}}">{{item}}</div>
         <content select=".sourceButton" on-tap="{{viewSourceAction}}">
           <core-icon-button class="sourceButton fallback" icon="launch"></core-icon-button>
         </content>
@@ -60,7 +60,7 @@ of the scaffold.
       
       <div id="card" on-transitionend="{{cardTransitionDone}}" hidden?="{{!item}}">
 
-        <div class="element-label" hidden?="{{narrow}}">{{item.label}}</div>
+        <div class="element-label" hidden?="{{narrow}}">{{item}}</div>
 
         <div id="frameContainer">
           <iframe id="frame" on-load="{{frameLoaded}}"></iframe>
@@ -139,15 +139,15 @@ of the scaffold.
         console.log("url parts: " + parts);
         var url = parts[parts.length-1];
         this.item = url;
-          //console.log("url: " + url);
-          this.$.frame.contentWindow.location.replace( "/" + url);
-          console.log(this.$.frame.contentWindow.location);
-          window.location.hash = url;
-          if (this.narrow) {
-            this.$.drawerPanel.closeDrawer();
-          } else {
-            this.animateCard();
-          }
+        console.log("url: " + url);
+        this.$.frame.contentWindow.location.replace( "/" + this.item + ".html");
+        console.log(this.$.frame.contentWindow.location);
+        window.location.hash = url;
+        if (this.narrow) {
+          this.$.drawerPanel.closeDrawer();
+        } else {
+          this.animateCard();
+        }
       }
     },
     
