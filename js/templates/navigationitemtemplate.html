@@ -1,0 +1,14 @@
+
+<core-item class="navigationitem" url="<%= navigationItemName %>">
+	<div class="navigationcontrolitem center" fit><%= navigationItemName %></div>
+	<!--<paper-ripple onclick="document.querySelector('#<%= navigationItemName %>').toggle();" fit></paper-ripple>-->
+		<a href="#<%= navigationItemName %>" target="_self" onclick="document.querySelector('#<%= navigationItemName %>').toggle();"></a>
+</core-item>
+<core-collapse id="<%= navigationItemName %>">
+    <div>
+        <ul class="navigationsubitems">
+            <% _.each( navigationSubItems, function( keyobj ) {%> 
+                <li><%= keyobj.subItem %></li><% } ); %>
+        </ul>
+    </div>
+</core-collapse>

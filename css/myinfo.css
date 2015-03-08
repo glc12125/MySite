@@ -1,0 +1,24 @@
+.myinfo {
+	width: 100%;
+	padding: 17px;
+	text-align: center;
+}
+
+.myinfo div[for="userinfomain"]{
+	display: inline-block;
+}
+
+
+.myinfo .image {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.myinfo span {
+    margin: 2px;
+}
+
+.sized {
+      width: 100px;
+      height: 100px;
+}

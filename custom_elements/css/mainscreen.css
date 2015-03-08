@@ -1,0 +1,18 @@
+/* card */
+#card {
+  display: block;
+  margin: 64px 120px 60px 0;
+  background-color: #fff;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+#card[hidden] {
+  display: none;
+}
+
+#card.move-up {
+  transition: -webkit-transform 0.38s cubic-bezier(0.4, 0.0, 0.2, 1);
+  transition: transform 0.38s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
