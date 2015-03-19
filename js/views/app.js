@@ -22,12 +22,12 @@ define([
 			this.$userInfodata = this.$('#userinfo');
 
 			this.listenTo(MyInfo, 'reset', this.addUserInfo);
-			this.listenTo(MainScreen, 'filter', this.switchScreen);
+			//this.listenTo(MainScreen, 'filter', this.switchScreen);
 
 			MyInfo.fetch({reset: true});
 
 			new NavigationItemsView();
-			new MainScreenView({model: MainScreen});
+			//new MainScreenView({model: MainScreen});
 		},
 
 		render: function () {

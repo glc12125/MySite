@@ -30,10 +30,22 @@ var SocialScreen = new mongoose.Schema({
 	title: String
 });
 
+var TimeLineItem = new mongoose.Schema({
+	title: String,
+	content: String,
+	createTime: String,
+	type: String
+});
+
+var TimeLineScreen = new mongoose.Schema({
+	timeLineItems: [TimeLineItem]
+});
+
 //DB Models
 var UserInfoModel = mongoose.model( 'UserInfo', UserInfo );
 var NavigationItemModel = mongoose.model( 'NavigationItem', NavigationItem );
 var SocialScreenModel = mongoose.model( 'SocialScreen', SocialScreen );
+var TimeLineScreenModel = mongoose.model( 'TimeLineScreen', TimeLineScreen );
 
 // Initialize my data
 
@@ -170,8 +182,18 @@ app.get( '/api/navigationitems', function( request, response ){
     });
 });
 
-app.get( '/Social', function( request, response ){
+app.get( '/social', function( request, response ){
     return SocialScreenModel.find( function( err, items ) {
+        if( !err ) {
+            return response.send( items );
+        } else {
+            return console.log( err );
+        }
+    });
+});
+
+app.get( '/timeline', function( request, response ){
+    return TimeLineScreenModel.find( function( err, items ) {
         if( !err ) {
             return response.send( items );
         } else {

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <title>Li's timeline</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="My time line">
+    <meta name="author" content="Liangchuan Gu">
+
+    <!-- CSS -->
+    <link href="css/timeline.css" rel="stylesheet">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- Polymer libraries -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="polymer_components/platform/platform.js"></script>
+    <link rel="import" href="polymer_components/core-collapse/core-collapse.html">
+</head>
+  
+  <body>
+    <div class="container">
+      <table class="table">
+        <tbody>
+          <tr>
+          </tr>
+        </tbody>
+      </table>
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Time line</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <a href="#">All</a>
+            </li>
+            <li>
+              <a href="#">Tech</a>
+            </li>
+            <li>
+              <a href="#">Mood</a>
+            </li>
+            <li>
+              <a href="#">News</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <span class="badge">2015/03/01</span>
+          <span class="label label-primary">Tech</span>
+          <span onclick="document.querySelector('#sample-collapse').toggle();">Sample title</span>
+          <core-collapse id="sample-collapse">
+              <div>
+                  Brief content
+              </div>
+              <span class="badge">More</span>
+          </core-collapse>
+        </li>
+        <li class="list-group-item">
+          <span class="label label-success">Mood</span>
+          <span class="badge">2015/03/02</span>
+          Dapibus ac facilisis in
+        </li>
+        <li class="list-group-item">
+          <span class="label label-warning">News</span>
+          <span class="badge">2015/03/03</span>
+          Morbi leo risus
+        </li>
+      </ul>
+    </div>
+    <script data-main="js/timeline" src="node_modules/requirejs/require.js"></script>
+  </body>
+
+</html>

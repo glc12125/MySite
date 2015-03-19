@@ -131,7 +131,6 @@ of the scaffold.
     },
     
     menuSelect: function(e, detail) {
-      if(detail.isSelected){
         console.log("detail: " + detail);
         console.log("detail.isSelected: " + detail.isSelected);
         console.log("current location: " + window.location.pathname);
@@ -148,7 +147,6 @@ of the scaffold.
         } else {
           this.animateCard();
         }
-      }
     },
     
     animateCard: function() {

@@ -26,7 +26,7 @@ require.config({
         jquery: '../node_modules/jquery/dist/jquery',
         underscore: '../node_modules/underscore/underscore',
         backbone: '../node_modules/backbone/backbone',
-        bootstrap: '../node_modules/bootstrap/dist/js/bootstrap.min.js',
+        bootstrap: '../node_modules/bootstrap/dist/js/bootstrap',
         text: '../node_modules/requirejs-text/text'
     }
 });
