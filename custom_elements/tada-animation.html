@@ -1,0 +1,179 @@
+<link rel="import" href="../polymer_components/core-animation/core-animation.html">
+<link rel="import" href="../polymer_components/core-image/core-image.html">
+<polymer-element name='tada-animation' attributes="name target duration easing delay endDelay fill iterations direction">
+    <template>
+        <div id="wrapper">
+            <div layout="" relative="" on-mouseover='{{onHovered}}'>
+                <core-image id="target" src="../assets/placeholder.png"></core-image>
+                <p>
+                    <content></content>
+                </p>
+            </div>
+        </div>
+        <core-animation id="tada" target="{{target}}" duration="500" easing="linear" delay="0" endDelay="0" fill="auto" iterations="1" direction="normal">
+            <core-animation-keyframe offset="0">
+                <core-animation-prop name="transform" value="scale3d(1, 1, 1)"></core-animation-prop>
+            </core-animation-keyframe>
+            <core-animation-keyframe offset="0.1">
+                <core-animation-prop name="transform" value="scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg)"></core-animation-prop>
+            </core-animation-keyframe>
+            <core-animation-keyframe offset="0.2">
+                <core-animation-prop name="transform" value="scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg)"></core-animation-prop>
+            </core-animation-keyframe>
+            <core-animation-keyframe offset="0.3">
+                <core-animation-prop name="transform" value="scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg)"></core-animation-prop>
+            </core-animation-keyframe>
+            <core-animation-keyframe offset="0.4">
+                <core-animation-prop name="transform" value="scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg)"></core-animation-prop>
+            </core-animation-keyframe>
+            <core-animation-keyframe offset="0.5">
+                <core-animation-prop name="transform" value="scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg)"></core-animation-prop>
+            </core-animation-keyframe>
+            <core-animation-keyframe offset="0.6">
+                <core-animation-prop name="transform" value="scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg)"></core-animation-prop>
+            </core-animation-keyframe>
+            <core-animation-keyframe offset="0.7">
+                <core-animation-prop name="transform" value="scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg)"></core-animation-prop>
+            </core-animation-keyframe>
+            <core-animation-keyframe offset="0.8">
+                <core-animation-prop name="transform" value="scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg)"></core-animation-prop>
+            </core-animation-keyframe>
+            <core-animation-keyframe offset="0.9">
+                <core-animation-prop name="transform" value="scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg)"></core-animation-prop>
+            </core-animation-keyframe>
+            <core-animation-keyframe offset="1">
+                <core-animation-prop name="transform" value="scale3d(1, 1, 1)"></core-animation-prop>
+            </core-animation-keyframe>
+        </core-animation>
+    </template>
+    <script>
+    Polymer('tada-animation', {
+        /**
+         * ATTR
+         *
+         * @attribute name
+         * @type String
+         * @default ''
+         */
+        name: '',
+
+        /**
+         * ATTR
+         *
+         * @attribute target
+         * @type HTMLElement|Node|Array<HTMLElement|Node>
+         * @default null
+         */
+        target: null,
+
+        /**
+         * ATTR
+         *
+         * @attribute duration
+         * @type Number
+         * @default 500
+         */
+        duration: 500,
+
+        /**
+         * ATTR
+         *
+         * @attribute easing
+         * @type String
+         * @default 'linear'
+         */
+        easing: 'linear',
+
+        /**
+         * ATTR
+         *
+         * @attribute delay
+         * @type Number
+         * @default 0
+         */
+        delay: 0,
+
+        /**
+         * ATTR
+         *
+         * @attribute endDelay
+         * @type Number
+         * @default 0
+         */
+        endDelay: 0,
+
+        /**
+         * ATTR
+         *
+         * @attribute fill
+         * @type String
+         * @default 'auto'
+         */
+        fill: 'auto',
+
+        /**
+         * ATTR
+         *
+         * @attribute iterations
+         * @type Number|String
+         * @default 1
+         */
+        iterations: 1,
+
+        /**
+         * ATTR
+         *
+         * @attribute direction
+         * @type String
+         * @default 'normal'
+         */
+        direction: 'normal',
+
+        /**
+         * PROP
+         *
+         * @property player
+         * @type CoreAnimation
+         * @default null
+         */
+        player: null,
+
+        created: function() {},
+        ready: function() {},
+        domReady: function() {},
+        attached: function() {
+            this.addEventListener('core-animation-finish', this.handleAnimateFinish);
+        },
+        detached: function() {
+            this.removeEventListener('core-animation-finish', this.handleAnimateFinish);
+        },
+
+        handleAnimateFinish: function(e) {
+            this.fire('tada-animation-finish');
+        },
+
+        /**
+         * MTD
+         *
+         * @method getNames
+         * @returns {Array}
+         */
+        getNames: function() {
+            return Object.keys(this.$);
+        },
+
+        onHovered: function() {
+
+            if (this.player) {
+                this.player.cancel();
+            }
+            console.log("onHovered triggered");
+            this.name = "tada";
+            this.player = this.$[this.name];
+
+            this.player.target = this.$['target'];
+            this.player.play();
+        }
+    })
+    </script>
+</polymer-element>
