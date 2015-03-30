@@ -1,3 +1,63 @@
 .griditem {
-  text-align: center;
+    text-align: center;
+}
+
+#wrapper #target {
+    overflow: hidden;
+    width: 100%;
+    height: 280px;
+    margin-bottom: 32px;
+}
+
+#wrapper #target p {
+    font-size: 48px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -48px 0 0 -80px;
+}
+
+#wrapper #target .buttons-wrapper {
+    position: absolute;
+    bottom: 16px;
+    width: 100%;
+    text-align: center;
+}
+
+
+@media (min-width: 992px) {
+    #wrapper {
+        max-width: 768px;
+        margin: 32px auto;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    #wrapper {
+        max-width: 640px;
+        margin: 24px auto;
+    }
+    #wrapper #target {
+        height: 230px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    #wrapper {
+        max-width: 400px;
+        margin: 16px auto;
+    }
+    #wrapper #target {
+        height: 230px;
+    }
+}
+
+@media (max-width: 480px) {
+    #wrapper {
+        max-width: 300px;
+        margin: 8px auto;
+    }
+    #wrapper #target {
+        height: 230px;
+    }
 }
