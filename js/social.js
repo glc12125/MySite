@@ -32,7 +32,9 @@ require.config({
 });
 
 require([
-    'backbone'
-], function (Backbone) {
+    'backbone',
+    'views/socialapp'
+], function (Backbone, SocialAppView) {
     Backbone.history.start();
+    new SocialAppView();
 });

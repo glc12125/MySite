@@ -1,0 +1,38 @@
+db.runCommand(
+   {
+      insert: "users",
+      documents: [ { _id: 1, user: "abc123", status: "A" } ]
+   }
+)
+
+"firstName" : "Liangchuan", "lastName" : "Gu", "email" : "glc12125@gmail.com", "mobile" : "07444961863"
+
+db.UserInfo.insert( { profileImage: "profile.jpg", firstName: "Liangchuan", lastName: "Gu", email: "glc12125@gmail.com", mobile: "07444961863"} )
+
+db.NavigationItem.insert( { navigationItemName: "Social", navigationSubItems: [{subItem: 'Facebook'}, {subItem: 'Twitter'}]} )
+db.NavigationItem.insert( { navigationItemName: "Blog", navigationSubItems: []} )
+db.NavigationItem.insert( { navigationItemName: "Reume", navigationSubItems: []} )
+db.NavigationItem.insert( { navigationItemName: "Projects", navigationSubItems: [{subItem: 'Web'}, {subItem: 'Mobile'}]} )
+
+
+db.runCommand(
+   {
+      update: "UserInfo",
+      updates: [
+         {
+           q: { firstName: "Liangchuan" }, u: { $set: { profileImage: "profile.jpg" } }
+         }
+      ]
+   }
+)
+
+db.runCommand(
+   {
+      update: "navigationitems",
+      updates: [
+         {
+           q: { navigationItemName: "Projects" }, u: { $set: { navigationItemName: "projects" } }
+         }
+      ]
+   }
+)

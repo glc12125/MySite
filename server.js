@@ -27,7 +27,9 @@ var NavigationItem = new mongoose.Schema({
 });
 
 var SocialScreen = new mongoose.Schema({
-	title: String
+	socialName: String,
+	socialIcon: String,
+	socialLink: String
 });
 
 var TimeLineItem = new mongoose.Schema({
@@ -78,7 +80,9 @@ var projectsNavigationItems = new NavigationItemModel({
 });
 
 var socialScreenInstance = new SocialScreenModel({
-	title: "Facebook"
+	socialName: "FaceBook",
+	socialIcon: "../assets/placeholder.png",
+	socialLink: "http://www.facebook.com"
 });
 
 /*
@@ -182,7 +186,7 @@ app.get( '/api/navigationitems', function( request, response ){
     });
 });
 
-app.get( '/social', function( request, response ){
+app.get( '/api/socialitems', function( request, response ){
     return SocialScreenModel.find( function( err, items ) {
         if( !err ) {
             return response.send( items );

@@ -1,6 +1,6 @@
 <link rel="import" href="../polymer_components/core-animation/core-animation.html">
 <link rel="import" href="../polymer_components/core-image/core-image.html">
-<polymer-element name='tada-animation' attributes="name target duration easing delay endDelay fill iterations direction">
+<polymer-element name='tada-animation' attributes="name target duration easing delay endDelay fill iterations direction socialIcon socialLink">
     <template>
         <div id="wrapper">
             <div layout="" relative="" on-mouseover='{{onHovered}}'>
@@ -10,7 +10,7 @@
                 </p>
             </div>
         </div>
-        <core-animation id="tada" target="{{target}}" duration="500" easing="linear" delay="0" endDelay="0" fill="auto" iterations="1" direction="normal">
+        <core-animation id="tada" target="{{target}}" duration="{{duration}}" easing="{{easing}}" delay="{{delay}}" endDelay="{{endDelay}}" fill="{{fill}}" iterations="{{iterations}}" direction="{{direction}}">
             <core-animation-keyframe offset="0">
                 <core-animation-prop name="transform" value="scale3d(1, 1, 1)"></core-animation-prop>
             </core-animation-keyframe>
@@ -129,6 +129,24 @@
          */
         direction: 'normal',
 
+        /*
+        * ATTR
+        *
+        * @attribute socialIcon
+        * @type String
+        * @defaul ''
+        */
+        socialIcon: '',
+
+        /*
+        * ATTR
+        *
+        * @attribute socialLink
+        * @type String
+        * @defaul ''
+        */
+        socialLink: '',
+        
         /**
          * PROP
          *
@@ -168,10 +186,8 @@
                 this.player.cancel();
             }
             console.log("onHovered triggered");
-            this.name = "tada";
-            this.player = this.$[this.name];
-
-            this.player.target = this.$['target'];
+            this.player = this.$["tada"];
+            this.player.target = this.$["target"];
             this.player.play();
         }
     })

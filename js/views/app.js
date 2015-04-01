@@ -3,12 +3,10 @@ define([
 	'underscore',
 	'backbone',
 	'collections/myinfo',
-	'models/mainscreen',
 	'views/myinfo',
 	'views/navigationitems',
-	'views/mainscreen',
 	'common'
-], function ($, _, Backbone, MyInfo, MainScreen, MyInfoView, NavigationItemsView, MainScreenView, Common ){
+], function ($, _, Backbone, MyInfo, MyInfoView, NavigationItemsView, Common ){
 	'use strict';
 
 	var AppView = Backbone.View.extend({
@@ -22,12 +20,10 @@ define([
 			this.$userInfodata = this.$('#userinfo');
 
 			this.listenTo(MyInfo, 'reset', this.addUserInfo);
-			//this.listenTo(MainScreen, 'filter', this.switchScreen);
 
 			MyInfo.fetch({reset: true});
 
 			new NavigationItemsView();
-			//new MainScreenView({model: MainScreen});
 		},
 
 		render: function () {
