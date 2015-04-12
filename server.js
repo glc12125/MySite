@@ -158,15 +158,21 @@ var projectARItems = new ProjectScreenModel({
 });
 
 
-projectARItems.save(function (err) {
+socialScreenInstance.save(function (err) {
 	if (err) return handleError(err);
-	ProjectScreenModel.findById(projectARItems, function (err, doc) {
+	SocialScreenModel.findById(socialScreenInstance, function (err, doc) {
 	if (err) return handleError(err);
 		console.log(doc); 
 	})
 });
 
-
+timelineScreenInstance.save(function (err) {
+	if (err) return handleError(err);
+	TimeLineScreenModel.findById(timelineScreenInstance, function (err, doc) {
+	if (err) return handleError(err);
+		console.log(doc); 
+	})
+});
 
 resumeEducationItems.save(function (err) {
 	if (err) return handleError(err);
@@ -177,17 +183,9 @@ resumeEducationItems.save(function (err) {
 });
 
 
-timelineScreenInstance.save(function (err) {
+projectARItems.save(function (err) {
 	if (err) return handleError(err);
-	TimeLineScreenModel.findById(timelineScreenInstance, function (err, doc) {
-	if (err) return handleError(err);
-		console.log(doc); 
-	})
-});
-
-socialScreenInstance.save(function (err) {
-	if (err) return handleError(err);
-	SocialScreenModel.findById(socialScreenInstance, function (err, doc) {
+	ProjectScreenModel.findById(projectARItems, function (err, doc) {
 	if (err) return handleError(err);
 		console.log(doc); 
 	})
