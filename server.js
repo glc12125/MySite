@@ -74,14 +74,14 @@ var ProjectScreenModel = mongoose.model( 'ProjectScreen', ProjectScreen);
 
 
 // clean before initialization
-
+/*
 mongoose.connection.collections['userinfos'].drop( function(err) { console.log('userinfos dropped'); });
 mongoose.connection.collections['navigationitems'].drop( function(err) { console.log('navigationitems dropped'); });
 mongoose.connection.collections['socialscreens'].drop( function(err) { console.log('socialscreens dropped'); });
 mongoose.connection.collections['timelinescreens'].drop( function(err) { console.log('timelinescreens dropped'); });
 mongoose.connection.collections['resumescreens'].drop( function(err) { console.log('resumescreens dropped'); });
 mongoose.connection.collections['projectscreens'].drop( function(err) { console.log('projectscreens dropped'); });
-
+*/
 // Initialize my data
 
 var myInfo = new UserInfoModel({
@@ -157,22 +157,22 @@ var projectARItems = new ProjectScreenModel({
 		]
 });
 
-/*
+
 socialScreenInstance.save(function (err) {
 	if (err) return handleError(err);
 	SocialScreenModel.findById(socialScreenInstance, function (err, doc) {
 	if (err) return handleError(err);
 		console.log(doc); 
 	})
-});*/
-
+});
+/*
 timelineScreenInstance.save(function (err) {
 	if (err) return handleError(err);
 	TimeLineScreenModel.findById(timelineScreenInstance, function (err, doc) {
 	if (err) return handleError(err);
 		console.log(doc); 
 	})
-});
+});*/
 
 resumeEducationItems.save(function (err) {
 	if (err) return handleError(err);
@@ -182,15 +182,15 @@ resumeEducationItems.save(function (err) {
 	})
 });
 
-/*
+
 projectARItems.save(function (err) {
 	if (err) return handleError(err);
 	ProjectScreenModel.findById(projectARItems, function (err, doc) {
 	if (err) return handleError(err);
 		console.log(doc); 
 	})
-});*/
-
+});
+/*
 socialNavigationItems.save(function (err) {
 	if (err) return handleError(err);
 	NavigationItemModel.findById(socialNavigationItems, function (err, doc) {
@@ -230,7 +230,7 @@ myInfo.save(function (err) {
 		console.log(doc); // { name: 'mongodb.org', _id: '50341373e894ad16347efe12' }
 	})
 });
-
+*/
 
 //Create server
 var app = express();
