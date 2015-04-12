@@ -157,7 +157,7 @@ var projectARItems = new ProjectScreenModel({
 		]
 });
 
-
+/*
 socialScreenInstance.save(function (err) {
 	if (err) return handleError(err);
 	SocialScreenModel.findById(socialScreenInstance, function (err, doc) {
@@ -230,7 +230,7 @@ myInfo.save(function (err) {
 		console.log(doc); // { name: 'mongodb.org', _id: '50341373e894ad16347efe12' }
 	})
 });
-
+*/
 
 //Create server
 var app = express();
