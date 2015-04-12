@@ -93,22 +93,22 @@ var myInfo = new UserInfoModel({
 });
 
 var socialNavigationItems = new NavigationItemModel({
-	navigationItemName: "Social",
+	navigationItemName: "social",
 	navigationSubItems: [ {subItem: 'Facebook'}, {subItem: 'Twitter'} ]
 });
 
-var blogNavigationItems = new NavigationItemModel({
-	navigationItemName: "Blog",
+var timelineNavigationItems = new NavigationItemModel({
+	navigationItemName: "timeline",
 	navigationSubItems: []
 });
 
 var resumeNavigationItems = new NavigationItemModel({
-	navigationItemName: "Resume",
+	navigationItemName: "resume",
 	navigationSubItems: []
 });
 
 var projectsNavigationItems = new NavigationItemModel({
-	navigationItemName: "Projects",
+	navigationItemName: "projects",
 	navigationSubItems: []
 });
 
@@ -193,9 +193,17 @@ socialScreenInstance.save(function (err) {
 	})
 });
 
-blogNavigationItems.save(function (err) {
+socialNavigationItems.save(function (err) {
 	if (err) return handleError(err);
-	NavigationItemModel.findById(blogNavigationItems, function (err, doc) {
+	NavigationItemModel.findById(socialNavigationItems, function (err, doc) {
+	if (err) return handleError(err);
+		console.log(doc); 
+	})
+});
+
+timelineNavigationItems.save(function (err) {
+	if (err) return handleError(err);
+	NavigationItemModel.findById(timelineNavigationItems, function (err, doc) {
 	if (err) return handleError(err);
 		console.log(doc); 
 	})
