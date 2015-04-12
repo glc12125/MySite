@@ -207,15 +207,6 @@ projectsNavigationItems.save(function (err) {
 	})
 });
 
-
-myNavigationItems.save(function (err) {
-	if (err) return handleError(err);
-	NavigationItemModel.findById(myNavigationItems, function (err, doc) {
-	if (err) return handleError(err);
-		console.log(doc); 
-	})
-});
-
 myInfo.save(function (err) {
 	if (err) return handleError(err);
 	UserInfoModel.findById(myInfo, function (err, doc) {
