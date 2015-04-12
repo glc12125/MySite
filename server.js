@@ -147,7 +147,7 @@ var projectARItems = new ProjectScreenModel({
 		]
 });
 
-
+/*
 projectARItems.save(function (err) {
 	if (err) return handleError(err);
 	ProjectScreenModel.findById(projectARItems, function (err, doc) {
@@ -214,6 +214,7 @@ myInfo.save(function (err) {
 		console.log(doc); // { name: 'mongodb.org', _id: '50341373e894ad16347efe12' }
 	})
 });
+*/
 
 //Create server
 var app = express();
@@ -236,7 +237,7 @@ app.configure( function () {
     app.use( express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
-var port = 8989;
+var port = process.env.PORT || 8989;
 app.listen(port, function() {
 	console.log( 'Express server listening on port %d in %s mode', 
     port, app.settings.env );
