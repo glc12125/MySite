@@ -157,14 +157,14 @@ var projectARItems = new ProjectScreenModel({
 		]
 });
 
-
+/*
 socialScreenInstance.save(function (err) {
 	if (err) return handleError(err);
 	SocialScreenModel.findById(socialScreenInstance, function (err, doc) {
 	if (err) return handleError(err);
 		console.log(doc); 
 	})
-});
+});*/
 
 timelineScreenInstance.save(function (err) {
 	if (err) return handleError(err);
@@ -182,14 +182,14 @@ resumeEducationItems.save(function (err) {
 	})
 });
 
-
+/*
 projectARItems.save(function (err) {
 	if (err) return handleError(err);
 	ProjectScreenModel.findById(projectARItems, function (err, doc) {
 	if (err) return handleError(err);
 		console.log(doc); 
 	})
-});
+});*/
 
 socialNavigationItems.save(function (err) {
 	if (err) return handleError(err);
