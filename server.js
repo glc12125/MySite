@@ -72,6 +72,16 @@ var TimeLineScreenModel = mongoose.model( 'TimeLineScreen', TimeLineScreen );
 var ResumeScreenModel = mongoose.model( 'ResumeScreen', ResumeScreen);
 var ProjectScreenModel = mongoose.model( 'ProjectScreen', ProjectScreen);
 
+
+// clean before initialization
+
+mongoose.connection.collections['userinfos'].drop( function(err) { console.log('userinfos dropped'); });
+mongoose.connection.collections['navigationitems'].drop( function(err) { console.log('navigationitems dropped'); });
+mongoose.connection.collections['socialscreens'].drop( function(err) { console.log('socialscreens dropped'); });
+mongoose.connection.collections['timelinescreens'].drop( function(err) { console.log('timelinescreens dropped'); });
+mongoose.connection.collections['resumescreens'].drop( function(err) { console.log('resumescreens dropped'); });
+mongoose.connection.collections['projectscreens'].drop( function(err) { console.log('projectscreens dropped'); });
+
 // Initialize my data
 
 var myInfo = new UserInfoModel({
