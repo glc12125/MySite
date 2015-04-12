@@ -2,22 +2,22 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/socialitemtemplate.html'
-], function($, _, Backbone, SocialItemTemplate) {
+    'text!templates/resumeitemtemplate.html'
+], function($, _, Backbone, ResumeItemTemplate) {
     'use strict';
 
-    var SocialItemsView = Backbone.View.extend({
+    var ResumeItemsView = Backbone.View.extend({
 
         tagName: 'div',
 
-        template: _.template(SocialItemTemplate),
+        template: _.template(ResumeItemTemplate),
 
-        className: 'col-md-4 griditem',
+        className: 'container',
 
         events: {},
 
         initialize: function(items) {
-            console.log('social template:' + JSON.stringify(this.template));
+            console.log('resume template:' + JSON.stringify(this.template));
             
             this.listenTo(this.model, 'change', this.render);
         },
@@ -30,5 +30,5 @@ define([
 
     });
 
-    return SocialItemsView;
+    return ResumeItemsView;
 });

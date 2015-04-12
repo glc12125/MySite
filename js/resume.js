@@ -26,13 +26,14 @@ require.config({
         jquery: '../node_modules/jquery/dist/jquery',
         underscore: '../node_modules/underscore/underscore',
         backbone: '../node_modules/backbone/backbone',
+        bootstrap: '../node_modules/bootstrap/dist/js/bootstrap.min.js',
         text: '../node_modules/requirejs-text/text'
     }
 });
 
 require([
-    'backbone', 
-    'views/app'
-], function (Backbone, AppView) {
-    new AppView();
+    'backbone',
+    'views/resumeapp'
+], function (Backbone, ResumeAppView) {
+    new ResumeAppView();
 });

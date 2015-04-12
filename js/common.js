@@ -4,7 +4,7 @@
 define([], function () {
 	return {
 		// Which filter are we using?
-		MainScreenFilter: '', // projects, resume, social
+		TimeLineFilter: '', // projects, resume, social
 
 		// What is the enter key constant?
 		ENTER_KEY: 13,

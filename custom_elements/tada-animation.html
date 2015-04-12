@@ -4,10 +4,11 @@
     <template>
         <div id="wrapper">
             <div layout="" relative="" on-mouseover='{{onHovered}}'>
-                <core-image id="target" src="../assets/placeholder.png"></core-image>
+                <core-image id="target" src="{{socialIcon}}"></core-image>
                 <p>
                     <content></content>
                 </p>
+                <a href="{{socialLink}}" />
             </div>
         </div>
         <core-animation id="tada" target="{{target}}" duration="{{duration}}" easing="{{easing}}" delay="{{delay}}" endDelay="{{endDelay}}" fill="{{fill}}" iterations="{{iterations}}" direction="{{direction}}">
@@ -146,7 +147,7 @@
         * @defaul ''
         */
         socialLink: '',
-        
+
         /**
          * PROP
          *

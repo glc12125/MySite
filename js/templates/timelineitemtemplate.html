@@ -1,0 +1,9 @@
+<span class="badge"><%= timeLineDate %></span>
+<span class="label label-<%= timeLineCategory %>"><%= timeLineCategory %></span>
+<span onclick="document.querySelector('#<%= timeLineTitle %>').toggle();"><%= timeLineTitle %></span>
+<core-collapse id="<%= timeLineTitle %>">
+    <div>
+        <%= timeLineContent %>
+    </div>
+    <span class="badge">More</span>
+</core-collapse>

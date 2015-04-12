@@ -35,6 +35,5 @@ require([
     'backbone',
     'views/socialapp'
 ], function (Backbone, SocialAppView) {
-    Backbone.history.start();
     new SocialAppView();
 });

@@ -1,4 +1,58 @@
+.hidden {
+	display: none;
+}
+
 .tech {
   color: #00ff00;
   font-size: 2em;
+}
+
+.label-default {
+  background-color: #777;
+}
+.label-default[href]:hover,
+.label-default[href]:focus {
+  background-color: #5e5e5e;
+}
+.label-tech {
+  background-color: #337ab7;
+}
+.label-tech[href]:hover,
+.label-tech[href]:focus {
+  background-color: #286090;
+}
+.label-mood {
+  background-color: #5cb85c;
+}
+.label-mood[href]:hover,
+.label-mood[href]:focus {
+  background-color: #449d44;
+}
+.label-info {
+  background-color: #5bc0de;
+}
+.label-info[href]:hover,
+.label-info[href]:focus {
+  background-color: #31b0d5;
+}
+.label-news {
+  background-color: #f0ad4e;
+}
+.label-news[href]:hover,
+.label-news[href]:focus {
+  background-color: #ec971f;
+}
+.label-danger {
+  background-color: #d9534f;
+}
+.label-danger[href]:hover,
+.label-danger[href]:focus {
+  background-color: #c9302c;
+}
+
+.navbar-nav>li>a.selected, 
+.navbar-default .navbar-nav>li>a.selected:focus,
+ .navbar-default .navbar-nav>li>a.selected:hover {
+  color: #555;
+  background-color: #e7e7e7;
 }

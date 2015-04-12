@@ -1,0 +1,12 @@
+.borderless {
+    border-top: none;
+}
+
+.table>tbody>tr.borderless>td,
+.table>tbody>tr.borderless>th,
+.table>tfoot>tr.borderless>td,
+.table>tfoot>tr.borderless>th,
+.table>thead>tr.borderless>td,
+.table>thead>tr.borderless>th {
+    border-top: none;
+}

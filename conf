@@ -36,3 +36,30 @@ db.runCommand(
       ]
    }
 )
+
+db.runCommand(
+   {
+      update: "resumescreens",
+      updates: [
+         {
+           q: { resumeSectionName: "Education" }, u: { $set: { sectionItems: [
+                     {  
+                        dateRange: '2012/10/01 - 2013/06/31',
+                        title: 'Cambridge',
+                        comment: ''
+                     }, 
+                     {  
+                        dateRange: '2010/09/16 - 2012/07/12',
+                        title: 'Dublin Institute of Technology',
+                        comment: 'First Honor'
+                     },
+                     {  
+                        dateRange: '2008/09/01 - 2012/07/15',
+                        title: 'Harbin Institute of Technology',
+                        comment: 'First Honor'
+                     }
+           ] } }
+         }
+      ]
+   }
+)

@@ -32,7 +32,12 @@ require.config({
 });
 
 require([
-    'backbone'
-], function (Backbone) {
+    'backbone',
+    'views/timelineapp',
+    'routers/timelinerouter'
+], function (Backbone, TimeLineAppView, TimeLineRouter) {
+    // Initialize routing and start Backbone.history()
+    new TimeLineRouter();
     Backbone.history.start();
+    new TimeLineAppView();
 });

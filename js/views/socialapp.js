@@ -26,7 +26,7 @@ define([
 		},
 
 		render: function () {
-
+			this.$sociallist.show();
 		},
 
 		addSocialItems: function () {

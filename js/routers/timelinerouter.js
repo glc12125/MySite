@@ -2,25 +2,25 @@
 define([
 	'jquery',
 	'backbone',
-	'models/mainscreen',
+	'collections/timelineitems',
 	'common'
-], function ($, Backbone, MainScreen, Common) {
+], function ($, Backbone, TimeLineItems, Common) {
 	'use strict';
 
-	var ScreenRouter = Backbone.Router.extend({
+	var TimeLineRouter = Backbone.Router.extend({
 		routes: {
 			'*filter': 'setFilter'
 		},
 
 		setFilter: function (param) {
 			// Set the current filter to be used
-			Common.MainScreenFilter = param || '';
+			Common.TimeLineFilter = param || '';
 
 			// Trigger a collection filter event, causing hiding/unhiding
-			// of the Todo view items
-			MainScreen.trigger('filter');
+			// of the time line items
+			TimeLineItems.trigger('filter');
 		}
 	});
 
-	return ScreenRouter;
+	return TimeLineRouter;
 });

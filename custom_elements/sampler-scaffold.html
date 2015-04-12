@@ -123,11 +123,10 @@ of the scaffold.
       console.log("route: " + route);
       for (var i = 0, item; item = this.$.menu.items[0].children[1].children[i]; i++) {
         if (item.children[0].getAttribute('url') === route) {
-          this.$.menu.selected = i;
+          this.$.menu.selected = true;
           return;
         }
       }
-      this.$.menu.selected = this.$.menu.selected || 0;
     },
     
     menuSelect: function(e, detail) {
