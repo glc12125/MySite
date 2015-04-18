@@ -1,0 +1,24 @@
+{
+  "name": "li-site",
+  "version": "1.0.0",
+  "authors": [
+    "glc12125 <Liangchuan Gu>"
+  ],
+  "description": "Liangchuan's personal website",
+  "main": "index.html",
+  "keywords": [
+    "Li"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^0.5"
+  }
+}

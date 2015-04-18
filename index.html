@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Li's</title>
-        <!-- CSS -->
-        <link rel="stylesheet" href="css/navigationitems.css">
-        <link rel="stylesheet" href="css/myinfo.css">
-        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-        <!-- Polymer libraries -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <script src="polymer_components/platform/platform.js"></script>
-        <script src="polymer_components/webcomponentsjs/webcomponents.js"></script>
-        <link rel="import" href="polymer_components/core-header-panel/core-header-panel.html">
-        <link rel="import" href="polymer_components/core-menu/core-menu.html">
-        <link rel="import" href="polymer_components/core-item/core-item.html">
-        <link rel="import" href="polymer_components/core-scaffold/core-scaffold.html">
-        <link rel="import" href="polymer_components/core-collapse/core-collapse.html">
-        <link rel="import" href="polymer_components/core-image/core-image.html">
-        <link rel="import" href="polymer_components/paper-ripple/paper-ripple.html">
-        <link rel="import" href="custom_elements/sampler-scaffold.html">
-	</head>
-    <body>
-        <sampler-scaffold label="About me" fit>
-                <section id="siteapp">
-                    <div id="userinfo"></div>
-                    <ul id="navigationitems" class="menu"></ul>
-                </section>
-        </sampler-scaffold>
-        <script data-main="js/main" src="node_modules/requirejs/require.js"></script>
-    </body>
+
+<head>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Li's</title>
+    <!-- Polymer libraries -->
+    <script src="polymer_components/webcomponentsjs/webcomponents.min.js"></script>
+    <link rel="import" href="polymer_components/core-header-panel/core-header-panel.html">
+    <link rel="import" href="polymer_components/core-menu/core-menu.html">
+    <link rel="import" href="polymer_components/core-item/core-item.html">
+    <link rel="import" href="polymer_components/core-scaffold/core-scaffold.html">
+    <link rel="import" href="polymer_components/core-collapse/core-collapse.html">
+    <link rel="import" href="polymer_components/core-image/core-image.html">
+    <link rel="import" href="polymer_components/paper-ripple/paper-ripple.html">
+    <link rel="import" href="custom_elements/sampler-scaffold.html">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/navigationitems.css">
+    <link rel="stylesheet" href="css/myinfo.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body unresolved>
+    <sampler-scaffold label="About me" fit>
+        <section id="siteapp">
+            <div id="userinfo"></div>
+            <ul id="navigationitems" class="menu"></ul>
+        </section>
+    </sampler-scaffold>
+    <script data-main="js/main" src="node_modules/requirejs/require.js"></script>
+</body>
+
 </html>
