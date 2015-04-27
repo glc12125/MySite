@@ -124,10 +124,28 @@ var projectsNavigationItems = new NavigationItemModel({
 	navigationSubItems: []
 });
 
-var socialScreenInstance = new SocialScreenModel({
+var facebookInstance = new SocialScreenModel({
 	socialName: "FaceBook",
-	socialIcon: "../assets/placeholder.png",
-	socialLink: "http://www.facebook.com"
+	socialIcon: "../assets/facebook.png",
+	socialLink: "https://www.facebook.com/liangchuan.gu&output=embed"
+});
+
+var twitterInstance = new SocialScreenModel({
+	socialName: "Twitter",
+	socialIcon: "../assets/twitter.png",
+	socialLink: "https://twitter.com/IricGu&output=embed"
+});
+
+var githubInstance = new SocialScreenModel({
+	socialName: "Github",
+	socialIcon: "../assets/github.png",
+	socialLink: "https://github.com/glc12125&output=embed"
+});
+
+var linkedinInstance = new SocialScreenModel({
+	socialName: "LinkedIn",
+	socialIcon: "../assets/linkedin.png",
+	socialLink: "https://www.linkedin.com/profile/view?id=90748674&output=embed"
 });
 
 var timelineScreenInstance = new TimeLineScreenModel({
@@ -169,7 +187,7 @@ var projectARItems = new ProjectScreenModel({
 		]
 });
 
-var initializeItems = [myInfo, socialNavigationItems, timelineNavigationItems, socialScreenInstance, resumeNavigationItems,
+var initializeItems = [myInfo, socialNavigationItems, timelineNavigationItems, facebookInstance, twitterInstance, githubInstance, linkedinInstance, resumeNavigationItems,
 	projectsNavigationItems, timelineScreenInstance, resumeEducationItems, projectARItems
 ];
 

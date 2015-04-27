@@ -5,10 +5,11 @@
         <div id="wrapper">
             <div layout="" relative="" on-mouseover='{{onHovered}}'>
                 <core-image id="target" src="{{socialIcon}}"></core-image>
-                <p>
-                    <content></content>
-                </p>
-                <a href="{{socialLink}}" />
+                <a href="{{socialLink}}">
+                    <p>
+                        <content></content>
+                    </p>
+                </a>
             </div>
         </div>
         <core-animation id="tada" target="{{target}}" duration="{{duration}}" easing="{{easing}}" delay="{{delay}}" endDelay="{{endDelay}}" fill="{{fill}}" iterations="{{iterations}}" direction="{{direction}}">
@@ -131,21 +132,21 @@
         direction: 'normal',
 
         /*
-        * ATTR
-        *
-        * @attribute socialIcon
-        * @type String
-        * @defaul ''
-        */
+         * ATTR
+         *
+         * @attribute socialIcon
+         * @type String
+         * @defaul ''
+         */
         socialIcon: '',
 
         /*
-        * ATTR
-        *
-        * @attribute socialLink
-        * @type String
-        * @defaul ''
-        */
+         * ATTR
+         *
+         * @attribute socialLink
+         * @type String
+         * @defaul ''
+         */
         socialLink: '',
 
         /**
