@@ -3,10 +3,11 @@ var application_root = __dirname,
     express = require( 'express' ), //Web framework
     path = require( 'path' ), //Utilities for dealing with file paths
     mongoose = require( 'mongoose' ); //MongoDB integration
+    async = require('async'); // async lib
 
 //Connect to database
-//mongoose.connect( 'mongodb://localhost/mysite_database' );
-mongoose.connect('mongodb://glc12125:glc19890701@ds061711.mongolab.com:61711/heroku_app35805516');
+mongoose.connect( 'mongodb://localhost/mysite_database' );
+//mongoose.connect('mongodb://glc12125:glc19890701@ds061711.mongolab.com:61711/heroku_app35805516');
 
 //Schemas
 
@@ -74,14 +75,25 @@ var ProjectScreenModel = mongoose.model( 'ProjectScreen', ProjectScreen);
 
 
 // clean before initialization
-/*
-mongoose.connection.collections['userinfos'].drop( function(err) { console.log('userinfos dropped'); });
-mongoose.connection.collections['navigationitems'].drop( function(err) { console.log('navigationitems dropped'); });
-mongoose.connection.collections['socialscreens'].drop( function(err) { console.log('socialscreens dropped'); });
-mongoose.connection.collections['timelinescreens'].drop( function(err) { console.log('timelinescreens dropped'); });
-mongoose.connection.collections['resumescreens'].drop( function(err) { console.log('resumescreens dropped'); });
-mongoose.connection.collections['projectscreens'].drop( function(err) { console.log('projectscreens dropped'); });
-*/
+var cleanCalls = [];
+var collections = [UserInfoModel, NavigationItemModel, SocialScreenModel, TimeLineScreenModel, ResumeScreenModel, ProjectScreenModel];
+
+collections.forEach( 
+	function(name){
+	cleanCalls.push(
+		function(callback) {
+			name.remove( {}, 
+				function(err) {
+		            if (err)
+		                return callback(err);
+		            console.log(name || ' removed');
+		            callback(null, name, "remove");
+		        }
+			);
+		}
+	);
+});
+
 // Initialize my data
 
 var myInfo = new UserInfoModel({
@@ -157,80 +169,35 @@ var projectARItems = new ProjectScreenModel({
 		]
 });
 
-/*
-socialScreenInstance.save(function (err) {
-	if (err) return handleError(err);
-	SocialScreenModel.findById(socialScreenInstance, function (err, doc) {
-	if (err) return handleError(err);
-		console.log(doc); 
-	})
-});
-
-timelineScreenInstance.save(function (err) {
-	if (err) return handleError(err);
-	TimeLineScreenModel.findById(timelineScreenInstance, function (err, doc) {
-	if (err) return handleError(err);
-		console.log(doc); 
-	})
-});
-
-resumeEducationItems.save(function (err) {
-	if (err) return handleError(err);
-	ResumeScreenModel.findById(resumeEducationItems, function (err, doc) {
-	if (err) return handleError(err);
-		console.log(doc); 
-	})
-});
+var initializeItems = [myInfo, socialNavigationItems, timelineNavigationItems, socialScreenInstance, resumeNavigationItems,
+	projectsNavigationItems, timelineScreenInstance, resumeEducationItems, projectARItems
+];
 
 
-projectARItems.save(function (err) {
-	if (err) return handleError(err);
-	ProjectScreenModel.findById(projectARItems, function (err, doc) {
-	if (err) return handleError(err);
-		console.log(doc); 
-	})
+initializeItems.forEach( 
+	function(data){
+	cleanCalls.push(
+		function(callback) {
+			data.save(
+				function(err) {
+		            if (err)
+		                return callback(err);
+		            callback(null, data, "save");
+		        }
+			);
+		}
+	);
 });
 
-socialNavigationItems.save(function (err) {
-	if (err) return handleError(err);
-	NavigationItemModel.findById(socialNavigationItems, function (err, doc) {
-	if (err) return handleError(err);
-		console.log(doc); 
-	})
+async.parallel(cleanCalls, function(err, result, type) {
+    /* this code will run after all calls finished the job or
+       when any of the calls passes an error */
+    console.log("callback invoked, type: " || type);
+    if (err)
+        return console.log(err);
+    console.log(type || result);
 });
 
-timelineNavigationItems.save(function (err) {
-	if (err) return handleError(err);
-	NavigationItemModel.findById(timelineNavigationItems, function (err, doc) {
-	if (err) return handleError(err);
-		console.log(doc); 
-	})
-});
-
-resumeNavigationItems.save(function (err) {
-	if (err) return handleError(err);
-	NavigationItemModel.findById(resumeNavigationItems, function (err, doc) {
-	if (err) return handleError(err);
-		console.log(doc); 
-	})
-});
-
-projectsNavigationItems.save(function (err) {
-	if (err) return handleError(err);
-	NavigationItemModel.findById(projectsNavigationItems, function (err, doc) {
-	if (err) return handleError(err);
-		console.log(doc); 
-	})
-});
-
-myInfo.save(function (err) {
-	if (err) return handleError(err);
-	UserInfoModel.findById(myInfo, function (err, doc) {
-	if (err) return handleError(err);
-		console.log(doc); // { name: 'mongodb.org', _id: '50341373e894ad16347efe12' }
-	})
-});
-*/
 
 //Create server
 var app = express();
