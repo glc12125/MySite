@@ -9,6 +9,7 @@ var application_root = __dirname,
 //mongoose.connect( 'mongodb://localhost/mysite_database' );
 mongoose.connect('mongodb://glc12125:glc19890701@ds061711.mongolab.com:61711/heroku_app35805516');
 
+
 //Schemas
 
 var UserInfo = new mongoose.Schema({
