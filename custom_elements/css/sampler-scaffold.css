@@ -157,10 +157,6 @@ polyfill-next-selector { content: '#drawerPanel:not([narrow]) .menuButton';}
   overflow: auto;
 }
 
-a {
-      text-decoration:none !important;
-}
-
 a.link:link {
     color:#000000;
     background-color:transparent;
