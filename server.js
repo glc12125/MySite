@@ -6,8 +6,8 @@ var application_root = __dirname,
     async = require('async'); // async lib
 
 //Connect to database
-//mongoose.connect( 'mongodb://localhost/mysite_database' );
-mongoose.connect('mongodb://glc12125:glc19890701@ds061711.mongolab.com:61711/heroku_app35805516');
+mongoose.connect( 'mongodb://localhost/mysite_database' );
+//mongoose.connect('mongodb://glc12125:glc19890701@ds061711.mongolab.com:61711/heroku_app35805516');
 
 
 //Schemas
@@ -128,25 +128,25 @@ var projectsNavigationItems = new NavigationItemModel({
 var facebookInstance = new SocialScreenModel({
 	socialName: "FaceBook",
 	socialIcon: "../assets/facebook.png",
-	socialLink: "https://www.facebook.com/liangchuan.gu&output=embed"
+	socialLink: "https://www.facebook.com/liangchuan.gu"
 });
 
 var twitterInstance = new SocialScreenModel({
 	socialName: "Twitter",
 	socialIcon: "../assets/twitter.png",
-	socialLink: "https://twitter.com/IricGu&output=embed"
+	socialLink: "https://twitter.com/IricGu"
 });
 
 var githubInstance = new SocialScreenModel({
 	socialName: "Github",
 	socialIcon: "../assets/github.png",
-	socialLink: "https://github.com/glc12125&output=embed"
+	socialLink: "https://github.com/glc12125"
 });
 
 var linkedinInstance = new SocialScreenModel({
 	socialName: "LinkedIn",
 	socialIcon: "../assets/linkedin.png",
-	socialLink: "https://www.linkedin.com/profile/view?id=90748674&output=embed"
+	socialLink: "https://www.linkedin.com/profile/view?id=90748674"
 });
 
 var timelineScreenInstance = new TimeLineScreenModel({

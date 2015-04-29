@@ -1,15 +1,17 @@
 <link rel="import" href="../polymer_components/core-animation/core-animation.html">
 <link rel="import" href="../polymer_components/core-image/core-image.html">
-<polymer-element name='tada-animation' attributes="name target duration easing delay endDelay fill iterations direction socialIcon socialLink">
+<!-- CSS -->
+<link rel="stylesheet" href="css/sampler-scaffold.css">
+<polymer-element name='tada-animation' attributes="name target duration easing delay endDelay fill iterations direction socialIcon socialLink socialName">
     <template>
         <div id="wrapper">
-            <div layout="" relative="" on-mouseover='{{onHovered}}'>
-                <core-image id="target" src="{{socialIcon}}"></core-image>
-                <a href="{{socialLink}}">
-                    <p>
-                        <content></content>
-                    </p>
-                </a>
+            <div layout="" relative="">
+                <core-image id="target" src="{{socialIcon}}" on-mouseover='{{onHovered}}'></core-image>
+                <p>
+                    <a href="{{socialLink}}" target="_blank" class="link">
+                        <content id="content">{{socialName}}</content>
+                    </a>
+                </p>
             </div>
         </div>
         <core-animation id="tada" target="{{target}}" duration="{{duration}}" easing="{{easing}}" delay="{{delay}}" endDelay="{{endDelay}}" fill="{{fill}}" iterations="{{iterations}}" direction="{{direction}}">
@@ -148,6 +150,15 @@
          * @defaul ''
          */
         socialLink: '',
+
+        /*
+         * ATTR
+         *
+         * @attribute socialName
+         * @type String
+         * @defaul ''
+         */
+        socialName: '',
 
         /**
          * PROP
