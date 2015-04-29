@@ -6,8 +6,8 @@ var application_root = __dirname,
     async = require('async'); // async lib
 
 //Connect to database
-mongoose.connect( 'mongodb://localhost/mysite_database' );
-//mongoose.connect('mongodb://glc12125:glc19890701@ds061711.mongolab.com:61711/heroku_app35805516');
+//mongoose.connect( 'mongodb://localhost/mysite_database' );
+mongoose.connect('mongodb://glc12125:glc19890701@ds061711.mongolab.com:61711/heroku_app35805516');
 
 
 //Schemas
