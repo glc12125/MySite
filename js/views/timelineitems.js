@@ -18,15 +18,14 @@ define([
         events: {},
 
         initialize: function(items) {
-            console.log('timeline template:' + JSON.stringify(this.template));
-
+            
             this.listenTo(this.model, 'change', this.render);
             this.listenTo(this.model, 'visible', this.toggleVisible);
         },
 
         render: function() {
+            console.log('timeline template:' + JSON.stringify(this.template));
             this.$el.html(this.template(this.model.toJSON()));
-
             this.toggleVisible();
 
             return this;

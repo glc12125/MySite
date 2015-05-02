@@ -35,18 +35,23 @@ var SocialScreen = new mongoose.Schema({
 	socialLink: String
 });
 
+var Images = new mongoose.Schema({
+	url: String
+});
 
 var TimeLineScreen = new mongoose.Schema({
 	timeLineTitle: String,
 	timeLineCategory: String,
 	timeLineContent: String,
-	timeLineDate: String
+	timeLineDate: String,
+	timeLineImages: [Images]
 });
 
 var ResumeSecionItems = new mongoose.Schema({
 	dateRange: String,
 	title: String,
-	comment: String
+	comment: String,
+	detail: String
 });
 
 var ResumeScreen = new mongoose.Schema({
@@ -57,7 +62,8 @@ var ResumeScreen = new mongoose.Schema({
 var ProjectSecionItems = new mongoose.Schema({
 	dateRange: String,
 	title: String,
-	comment: String
+	comment: String,
+	detail: String
 });
 
 var ProjectScreen = new mongoose.Schema({
@@ -152,8 +158,11 @@ var linkedinInstance = new SocialScreenModel({
 var timelineScreenInstance = new TimeLineScreenModel({
     timeLineTitle: 'Easter',
     timeLineCategory: 'mood',
-    timeLineContent: 'Easter Holiday',
-    timeLineDate: '2015/04/02'
+    timeLineContent: 'Went to Turkey with Leta, Turkey is a nice country!',
+    timeLineDate: '2015/04/02',
+    timeLineImages: [
+    	{url:"turkey1.jpg"}
+    ]
 });
 
 var resumeEducationItems = new ResumeScreenModel({
@@ -162,17 +171,20 @@ var resumeEducationItems = new ResumeScreenModel({
 			{	
 				dateRange: '2012/10/01 - 2013/06/31',
 				title: 'Cambridge',
-				comment: ''
+				comment: '',
+				detail:"MPhil in Advanced Computer Science, June 2013. Graduate Coursework: Programming for Mobiles, Innovative User Interface Design, Image processing, Social Network Study, Flows in Network"
 			}, 
 			{	
 				dateRange: '2010/09/16 - 2012/07/12',
 				title: 'Dublin Institute of Technology',
-				comment: 'First Honor'
+				comment: 'First Honor',
+				detail: "BSc (Hons) Computer Science, Jun 2012. Undergraduate Coursework: Artificial Intelligence, Business System Intelligence, Games Logic & Design, Computer Systems’ Architecture & Administration, Distributed System."
 			},
 			{	
 				dateRange: '2008/09/01 - 2012/07/15',
 				title: 'Harbin Institute of Technology',
-				comment: 'First Honor'
+				comment: 'First Honor',
+				detail: "BSc (Hons) Computer Science, Jun 2012. Undergraduate Coursework: Operating Systems, Objective Oriented Programming (C++), Algorithm analysis and design, Database, Data Communication, Math, Business, Software Engineer."
 			}
 		]
 });
@@ -183,7 +195,8 @@ var projectARItems = new ProjectScreenModel({
 			{	
 				dateRange: '2011/10/01 - 2012/06/01',
 				title: 'CBalloon',
-				comment: 'Android app'
+				comment: 'Android app',
+				detail: "Location based coupon collection app: Designed an Android application using AR, motion sensor, and GPS functions to collect coupons as the final year project. Implemented markless AR that presents a realistic feeling of 3D models. Used motion sensor to capture user gestures to mimic the 'catch' motion."
 			}
 		]
 });

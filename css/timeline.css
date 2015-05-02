@@ -7,6 +7,18 @@
   font-size: 2em;
 }
 
+.extendable {
+  cursor: pointer;
+}
+
+.timelineimage {
+  margin:5px;
+  width: 200px;
+  height: 200px;
+  background-color: lightgray;
+}
+
+
 .label-default {
   background-color: #777;
 }

@@ -8,10 +8,19 @@
                         <span class="label label-default"><%= keyobj.dateRange %></span>
                     </td>
                     <td>
-                        <%= keyobj.title %>
+                        <span onclick="document.querySelector('#id<%= keyobj.id %>').toggle();" class="extendable"><%= keyobj.title %></span>
                     </td>
                     <td>
                         <%= keyobj.comment %>
+                    </td>
+                </tr>
+                <tr class="borderless">
+                    <td colspan="3">
+                        <core-collapse id="id<%= keyobj.id %>">
+                            <div>
+                                <%= keyobj.detail %>
+                            </div>
+                        </core-collapse>
                     </td>
                 </tr>
                 <% } ); %>

@@ -18,7 +18,7 @@ define([
 		render: function () {
 
 			console.log( 'model:' + JSON.stringify(this.model) );
-			console.log( 'template:' + this.template );
+			console.log( 'navigationitem template:' + this.template );
 
 			this.$el.html( this.template( this.model.toJSON() ));
 

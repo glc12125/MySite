@@ -1,8 +1,11 @@
 <span class="badge"><%= timeLineDate %></span>
 <span class="label label-<%= timeLineCategory %>"><%= timeLineCategory %></span>
-<span onclick="document.querySelector('#<%= timeLineTitle %>').toggle();"><%= timeLineTitle %></span>
+<span onclick="document.querySelector('#<%= timeLineTitle %>').toggle();" class="extendable"><%= timeLineTitle %></span>
 <core-collapse id="<%= timeLineTitle %>">
     <div>
+        <% _.each( timeLineImages, function( image ) {%>
+        	<core-image class="timelineimage" preload placeholder="../../assets/loading.gif" fade sizing="cover" src="../../assets/<%= image.url %>"></core-image>
+        <% } ); %>
         <%= timeLineContent %>
     </div>
     <span class="badge">More</span>

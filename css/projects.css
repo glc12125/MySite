@@ -2,6 +2,10 @@
     border-top: none;
 }
 
+.extendable {
+  cursor: pointer;
+}
+
 .table>tbody>tr.borderless>td,
 .table>tbody>tr.borderless>th,
 .table>tfoot>tr.borderless>td,

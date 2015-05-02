@@ -13,6 +13,11 @@ define([
 
 		parse: function( response ) {
 	    	response.id = response._id;
+            var i;
+            for (i = 0; i < response.sectionItems.length; i++) {
+                response.sectionItems[i].id = response.sectionItems[i]._id;
+            }
+            console.log(response);
 	    	return response;
 		}
     });
