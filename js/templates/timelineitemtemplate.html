@@ -4,7 +4,7 @@
 <core-collapse id="<%= timeLineTitle %>">
     <div>
         <% _.each( timeLineImages, function( image ) {%>
-        	<core-image class="timelineimage" preload placeholder="../../assets/loading.gif" fade sizing="cover" src="../../assets/<%= image.url %>"></core-image>
+        	<core-image class="timelineimage" preload fade placeholder="../../assets/loading.gif" sizing="cover" src="../../assets/<%= image.url %>"></core-image>
         <% } ); %>
         <%= timeLineContent %>
     </div>
