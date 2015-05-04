@@ -20,13 +20,8 @@ var UserInfo = new mongoose.Schema({
 	mobile: String
 });
 
-var SubItems = new mongoose.Schema({
-    subItem: String
-});
-
 var NavigationItem = new mongoose.Schema({
-    navigationItemName: String,
-    navigationSubItems: [SubItems]
+    navigationItemName: String
 });
 
 var SocialScreen = new mongoose.Schema({
@@ -72,6 +67,14 @@ var ProjectScreen = new mongoose.Schema({
 });
 
 
+var HomeScreen = new mongoose.Schema({
+	homeInterests: [String],
+    currentReadings: [String],
+    projectNumber: Number,
+    currentEmployer: String,
+    myContact: String
+});
+
 //DB Models
 var UserInfoModel = mongoose.model( 'UserInfo', UserInfo );
 var NavigationItemModel = mongoose.model( 'NavigationItem', NavigationItem );
@@ -79,11 +82,12 @@ var SocialScreenModel = mongoose.model( 'SocialScreen', SocialScreen );
 var TimeLineScreenModel = mongoose.model( 'TimeLineScreen', TimeLineScreen );
 var ResumeScreenModel = mongoose.model( 'ResumeScreen', ResumeScreen);
 var ProjectScreenModel = mongoose.model( 'ProjectScreen', ProjectScreen);
+var HomeScreenModel = mongoose.model( 'HomeScreen', HomeScreen);
 
 
 // clean before initialization
 var cleanCalls = [];
-var collections = [UserInfoModel, NavigationItemModel, SocialScreenModel, TimeLineScreenModel, ResumeScreenModel, ProjectScreenModel];
+var collections = [UserInfoModel, NavigationItemModel, SocialScreenModel, TimeLineScreenModel, ResumeScreenModel, ProjectScreenModel, HomeScreenModel];
 
 collections.forEach( 
 	function(name){
@@ -93,8 +97,8 @@ collections.forEach(
 				function(err) {
 		            if (err)
 		                return callback(err);
-		            console.log(name || ' removed');
-		            callback(null, name, "remove");
+		            console.log('removed');
+		            callback(null, name);
 		        }
 			);
 		}
@@ -102,7 +106,7 @@ collections.forEach(
 });
 
 // Initialize my data
-
+var initializeCalls = [];
 var myInfo = new UserInfoModel({
 	profileImage: 'profile.jpg',
 	firstName: 'Liangchuan',
@@ -111,24 +115,24 @@ var myInfo = new UserInfoModel({
 	mobile: '07444961863'
 });
 
+var homeNavigationItems = new NavigationItemModel({
+	navigationItemName: "Home"
+});
+
 var socialNavigationItems = new NavigationItemModel({
-	navigationItemName: "social",
-	navigationSubItems: [ {subItem: 'Facebook'}, {subItem: 'Twitter'} ]
+	navigationItemName: "Social"
 });
 
 var timelineNavigationItems = new NavigationItemModel({
-	navigationItemName: "timeline",
-	navigationSubItems: []
+	navigationItemName: "Timeline"
 });
 
 var resumeNavigationItems = new NavigationItemModel({
-	navigationItemName: "resume",
-	navigationSubItems: []
+	navigationItemName: "Resume"
 });
 
 var projectsNavigationItems = new NavigationItemModel({
-	navigationItemName: "projects",
-	navigationSubItems: []
+	navigationItemName: "Projects"
 });
 
 var facebookInstance = new SocialScreenModel({
@@ -201,35 +205,54 @@ var projectARItems = new ProjectScreenModel({
 		]
 });
 
-var initializeItems = [myInfo, socialNavigationItems, timelineNavigationItems, facebookInstance, twitterInstance, githubInstance, linkedinInstance, resumeNavigationItems,
-	projectsNavigationItems, timelineScreenInstance, resumeEducationItems, projectARItems
+var homeScreenInstance = new HomeScreenModel({
+	homeInterests: ["Mobile development", "System Design", "Game development", "Web development"],
+	currentReadings: ["Way of the Turtle"],
+	projectNumber: 3,
+	currentEmployer: "R&D department, Bloomberg LP, London",
+	myContact: "glc12125@gmail.com"
+});
+
+var initializeItems = [myInfo, 
+	homeNavigationItems, socialNavigationItems, timelineNavigationItems, resumeNavigationItems, projectsNavigationItems, 
+	facebookInstance, twitterInstance, githubInstance, linkedinInstance,
+	timelineScreenInstance, 
+	resumeEducationItems, 
+	projectARItems,
+	homeScreenInstance
 ];
 
 
 initializeItems.forEach( 
 	function(data){
-	cleanCalls.push(
+	initializeCalls.push(
 		function(callback) {
 			data.save(
 				function(err) {
 		            if (err)
 		                return callback(err);
-		            callback(null, data, "save");
+		            console.log('inserted');
+		            callback(null, data);
 		        }
 			);
 		}
 	);
 });
 
-async.parallel(cleanCalls, function(err, result, type) {
+async.parallel(cleanCalls, function(err, result) {
     /* this code will run after all calls finished the job or
        when any of the calls passes an error */
-    console.log("callback invoked, type: " || type);
     if (err)
         return console.log(err);
-    console.log(type || result);
+    console.log('all dropped');
+    async.parallel(initializeCalls, function(err, result) {
+    	/* this code will run after all calls finished the job or
+    	   when any of the calls passes an error */
+    	if (err)
+    	    return console.log(err);
+    	console.log('all inserted');
+	});
 });
-
 
 //Create server
 var app = express();
@@ -316,6 +339,16 @@ app.get( '/api/projectitems', function( request, response ){
     return ProjectScreenModel.find( function( err, items ) {
         if( !err ) {
             return response.send( items );
+        } else {
+            return console.log( err );
+        }
+    });
+});
+
+app.get( '/api/home', function( request, response ){
+    return HomeScreenModel.find( function( err, items ) {
+        if( !err ) {
+            return response.send( items[0] );
         } else {
             return console.log( err );
         }

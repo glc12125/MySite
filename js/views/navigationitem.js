@@ -16,8 +16,6 @@ define([
 		events: {},
 
 		render: function () {
-
-			console.log( 'model:' + JSON.stringify(this.model) );
 			console.log( 'navigationitem template:' + this.template );
 
 			this.$el.html( this.template( this.model.toJSON() ));
