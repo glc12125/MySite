@@ -24,11 +24,11 @@ define([
         },
 
         addHomeItems: function () {
-            this.empty();
+            this.$itemlist.empty();
             HomeItems.each(this.addHomeItem, this);
         },
 
-        addHomeItems: function (homeItem) {
+        addHomeItem: function (homeItem) {
             var view = new HomeItemsView({ model: homeItem });
             this.$itemlist.append(view.render().el);
         }

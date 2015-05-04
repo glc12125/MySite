@@ -17,12 +17,12 @@ define([
         events: {},
 
         initialize: function(items) {
+            console.log('home template:' + JSON.stringify(HomeTemplate));
             this.listenTo(this.model, 'change', this.render);
         },
 
         render: function() {
-            console.log('home template:' + JSON.stringify(this.template));
-            this.$el.html(this.template(this.model.toJSON()[0]));
+            this.$el.html(this.template(this.model.toJSON()));
 
             return this;
         }
