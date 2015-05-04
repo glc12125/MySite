@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Li's timeline</title>
+    <meta name="description" content="My time line">
+    <meta name="author" content="Liangchuan Gu">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <!-- Polymer libraries -->
+    <script src="polymer_components/webcomponentsjs/webcomponents.min.js"></script>
+    <link rel="import" href="polymer_components/core-collapse/core-collapse.html">
+    <link rel="import" href="polymer_components/core-image/core-image.html">
+    <!-- CSS -->
+    <link href="css/timeline.css" rel="stylesheet">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container" id="timelineapp">
+        <table class="table">
+            <tbody>
+                <tr>
+                </tr>
+            </tbody>
+        </table>
+        <section id="timelinehead"></section>
+        <ul class="list-group" id="timelineitems"></ul>
+    </div>
+    <script data-main="js/timeline" src="node_modules/requirejs/require.js"></script>
+</body>
+
+</html>
