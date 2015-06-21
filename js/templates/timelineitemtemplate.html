@@ -1,12 +1,21 @@
-<span class="badge"><%= timeLineDate %></span>
-<span class="label label-<%= timeLineCategory %>"><%= timeLineCategory %></span>
-<span onclick="document.querySelector('#<%= timeLineTitle %>').toggle();" class="extendable"><%= timeLineTitle %></span>
-<core-collapse id="<%= timeLineTitle %>">
-    <div>
-        <% _.each( timeLineImages, function( image ) {%>
-        	<core-image class="timelineimage" preload fade placeholder="../../assets/loading.gif" sizing="cover" src="../../assets/<%= image.url %>"></core-image>
-        <% } ); %>
-        <%= timeLineContent %>
+<div class="collapse-card">
+    <div class="collapse-card__heading timelinecollapse">
+        <div class="collapse-card__title">
+            <span class="badge"><%= timeLineDate %></span>
+            <span class="label label-<%= timeLineCategory %>"><%= timeLineCategory %></span>
+            <i class="fa fa-2x fa-fw"></i>
+            <%= timeLineTitle %>
+        </div>
     </div>
-    <span class="badge">More</span>
-</core-collapse>
+    <div class="collapse-card__body">
+        <div>
+            <% _.each( timeLineImages, function( image ) {%>
+                <core-image class="timelineimage" preload fade placeholder="../../assets/loading.gif" sizing="cover" src="../../assets/<%= image.url %>"></core-image>
+                <% } ); %>
+                <%= timeLineContent %>
+        </div>
+        <div class="collapse-card__close_handler mt1 align-right mouse-pointer extendable">
+            Collapse <i class="fa fa-chevron-up"></i>
+        </div>
+    </div>
+</div>

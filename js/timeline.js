@@ -20,13 +20,20 @@ require.config({
                 'jquery'
             ],
             exports: 'Bootstrap'
+        },
+        mycollapse: {
+            deps: [
+                'jquery'
+            ],
+            exports: "MyCollapse"
         }
     },
     paths: {
         jquery: '../node_modules/jquery/dist/jquery',
         underscore: '../node_modules/underscore/underscore',
         backbone: '../node_modules/backbone/backbone',
-        bootstrap: '../node_modules/bootstrap/dist/js/bootstrap',
+        bootstrap: '../node_modules/bootstrap/dist/js/bootstrap.min',
+        mycollapse: '../custom_elements/paper-collapse.min',
         text: '../node_modules/requirejs-text/text'
     }
 });
@@ -34,8 +41,9 @@ require.config({
 require([
     'backbone',
     'views/timelineapp',
+    'mycollapse',
     'routers/timelinerouter'
-], function (Backbone, TimeLineAppView, TimeLineRouter) {
+], function (Backbone, TimeLineAppView, MyCollapse, TimeLineRouter) {
     // Initialize routing and start Backbone.history()
     new TimeLineRouter();
     Backbone.history.start();

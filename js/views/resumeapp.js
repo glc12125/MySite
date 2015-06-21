@@ -32,6 +32,7 @@ define([
 		addResumeItems: function () {
 			this.$resumelist.empty();
 			ResumeList.each(this.addResumeItem, this);
+			$('.collapse-card').paperCollapse();
 		},
 
 		addResumeItem: function ( resumeItem ) {

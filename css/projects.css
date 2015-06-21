@@ -1,9 +1,44 @@
+body {
+    background-color: #eee;
+    font-family: "Open Sans", Calibri, Candara, Arial, sans-serif;
+    min-height: 100vh;
+}
+
+#frame {
+    width: 1px;
+    min-width: 100%;
+    *width: 100%;
+}
+
+#projectlist .list-item-override {
+    border: none;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: auto;
+}
+
+.mt1 {
+    margin-top: 1rem;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.resumedate {
+	margin-right: 10%;
+}
+
+.mouse-pointer {
+    cursor: pointer;
+}
+
 .borderless {
     border-top: none;
 }
 
 .extendable {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .table>tbody>tr.borderless>td,

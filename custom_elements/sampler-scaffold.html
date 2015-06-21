@@ -62,7 +62,7 @@ of the scaffold.
         <div class="element-label" hidden?="{{narrow}}">{{item}}</div>
 
         <div id="frameContainer">
-          <iframe id="frame" on-load="{{frameLoaded}}"></iframe>
+          <iframe id="frame" on-load="{{frameLoaded}}" scrolling="yes"></iframe>
         </div>
         
       </div>
@@ -96,7 +96,7 @@ of the scaffold.
      * @attribute responsiveWidth
      * @type string
      */
-    responsiveWidth: '860px',
+    responsiveWidth: '640px',
     
     /**
      * Sampler label.
@@ -196,6 +196,7 @@ of the scaffold.
     },
     
     updateFrameHeight: function() {
+              console.log("Frame height updated.");
       var frame = this.$.frame;
       var doc = frame.contentDocument;
       if (doc) {
@@ -203,10 +204,11 @@ of the scaffold.
         // TODO(ffu); expose scroll info from header-panel
         var pos = this.$.mainHeaderPanel.$.mainContainer.scrollTop;
         frame.style.height = 'auto';
-        frame.style.height = docElt.scrollHeight + 'px';
+        //frame.style.height = docElt.scrollHeight + 'px';
         if (doc.body) {
           var s = doc.body.style;
-          s.overflow = 'hidden';
+          //s.overflow = 'hidden';
+          s.overflowX= 'hidden';
           // to avoid the 'blinking bug'
           // https://code.google.com/p/chromium/issues/detail?id=332024
           s.webkitTransform = s.transform = 'translateZ(0)';

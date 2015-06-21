@@ -10,7 +10,7 @@ require.config({
         },
         backbone: {
             deps: [
-                'underscore', 
+                'underscore',
                 'jquery'
             ],
             exports: 'Backbone'
@@ -20,20 +20,28 @@ require.config({
                 'jquery'
             ],
             exports: 'Bootstrap'
+        },
+        mycollapse: {
+            deps: [
+                'jquery'
+            ],
+            exports: "MyCollapse"
         }
     },
     paths: {
         jquery: '../node_modules/jquery/dist/jquery',
         underscore: '../node_modules/underscore/underscore',
         backbone: '../node_modules/backbone/backbone',
-        bootstrap: '../node_modules/bootstrap/dist/js/bootstrap.min.js',
+        bootstrap: '../node_modules/bootstrap/dist/js/bootstrap.min',
+        mycollapse: '../custom_elements/paper-collapse.min',
         text: '../node_modules/requirejs-text/text'
     }
 });
 
 require([
     'backbone',
+    'mycollapse',
     'views/resumeapp'
-], function (Backbone, ResumeAppView) {
+], function (Backbone, MyCollapse, ResumeAppView) {
     new ResumeAppView();
 });

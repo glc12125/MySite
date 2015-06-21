@@ -1,29 +1,22 @@
 <h3><%= resumeSectionName %></h3>
-<div class="container">
-    <table class="table">
-        <tbody>
-            <% _.each( sectionItems, function( keyobj ) {%>
-                <tr class="borderless">
-                    <td>
-                        <span class="label label-default"><%= keyobj.dateRange %></span>
-                    </td>
-                    <td>
-                        <span onclick="document.querySelector('#id<%= keyobj.id %>').toggle();" class="extendable"><%= keyobj.title %></span>
-                    </td>
-                    <td>
-                        <%= keyobj.comment %>
-                    </td>
-                </tr>
-                <tr class="borderless">
-                    <td colspan="3">
-                        <core-collapse id="id<%= keyobj.id %>">
-                            <div>
-                                <%= keyobj.detail %>
-                            </div>
-                        </core-collapse>
-                    </td>
-                </tr>
-                <% } ); %>
-        </tbody>
-    </table>
-</div>
+<ul class="list-group">
+    <% _.each( sectionItems, function( keyobj ) {%>
+        <li class="list-group-item list-item-override">
+            <div class="collapse-card">
+                <div class="collapse-card__heading">
+                    <div class="collapse-card__title">
+                        <span class="label label-default resumedate"><%= keyobj.dateRange %></span>
+                        <i class="fa fa-2x fa-fw"></i>
+                        <%= keyobj.title %>
+                    </div>
+                </div>
+                <div class="collapse-card__body">
+                    <%= keyobj.detail %>
+                    <div class="collapse-card__close_handler mt1 align-right mouse-pointer">
+                        Collapse <i class="fa fa-chevron-up"></i>
+                    </div>
+                </div>
+            </div>
+        </li>
+    <% } ); %>
+</ul>

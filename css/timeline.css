@@ -18,6 +18,13 @@
   background-color: lightgray;
 }
 
+.collapse-card {
+  border: none;
+}
+
+.collapse-card .timelinecollapse {
+  padding: 0px;
+}
 
 .label-default {
   background-color: #777;

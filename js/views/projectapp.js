@@ -32,6 +32,7 @@ define([
 		addProjectItems: function () {
 			this.$projectlist.empty();
 			ProjectList.each(this.addProjectItem, this);
+			$('.collapse-card').paperCollapse();
 		},
 
 		addProjectItem: function ( projectItem ) {

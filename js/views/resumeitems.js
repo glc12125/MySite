@@ -22,7 +22,7 @@ define([
         },
 
         render: function() {
-            console.log('resume template:' + JSON.stringify(this.template));
+            console.log('resume template:' + this.template);
             this.$el.html(this.template(this.model.toJSON()));
 
             return this;

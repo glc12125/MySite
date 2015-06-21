@@ -19,7 +19,6 @@ define([
         events: {},
 
         initialize: function() {
-            console.log('timelineapp template:' + JSON.stringify(this.template));
 
             this.$timelinelist = this.$('#timelineitems');
             this.$timelinehead = this.$('#timelinehead');
@@ -36,7 +35,7 @@ define([
 
         render: function() {
             this.$timelinehead.show();
-
+            console.log('timelineapp template:' + this.template);
             this.$timelinehead.html(this.template({}));
 
             console.log('Common.TimeLineFilter in timelineapp.js: ' + Common.TimeLineFilter);
@@ -55,6 +54,7 @@ define([
         addItemLineItems: function() {
             this.$timelinelist.empty();
             TimeLineItems.each(this.addTimeLineItem, this);
+            $('.collapse-card').paperCollapse();
         },
 
         addTimeLineItem: function(timeLineItem) {

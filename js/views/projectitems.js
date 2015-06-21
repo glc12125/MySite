@@ -8,11 +8,11 @@ define([
 
     var ProjectItemsView = Backbone.View.extend({
 
-        tagName: 'div',
+        tagName: 'li',
 
         template: _.template(ProjectItemTemplate),
 
-        className: 'container',
+        className: 'list-group-item list-item-override',
 
         events: {},
 
@@ -21,7 +21,7 @@ define([
         },
 
         render: function() {
-            console.log('project template:' + JSON.stringify(this.template));
+            console.log('project template:' + this.template);
             this.$el.html(this.template(this.model.toJSON()));
 
             return this;
